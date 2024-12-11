@@ -1,0 +1,63 @@
+#Generic Experiment Yaml file
+#Should comment control zone if running baseline
+Experiment :
+	Baseline : true
+##### Queueueueue Signs
+	QueueSignMain: Main
+		type: Deterministic
+			inflow: 0
+			delay: 3
+			releaseDelta: 2.0
+		segments: A81
+			offset: 0.05
+	QueueSignRamp: Ramp
+		type: Deterministic
+			inflow: 0
+			delay: 7
+			releaseDelta: 2.0
+		segments: S88
+			offset: 0.05
+	QueueSignEgo: Ego
+		type: Deterministic
+			inflow: 0
+			delay: 0
+			releaseDelta: 0.5
+		segments: S93
+			offset: 0.4
+	QueueSignBlack: Black
+		type: Deterministic
+			inflow: 1
+			delay: 0
+			releaseDelta: 0.5
+		segments: A81
+			offset: 0.0
+	QueueSignBlue: Blue
+		type: Deterministic
+			inflow: 0
+			delay: 0
+			releaseDelta: 0.5
+		segments: S93
+			offset: 0.4
+##### Control Zone Info
+	ControlZone : Merging
+		Scheduler: UnconTraj
+		ControlZoneMain: MainM
+			segments: S95,S91,S89
+			initialOffset: 0.0
+			finalOffset: 0.1
+			safetyTimeGap: 1
+		ControlZoneRamp: RampM
+			segments: S80,A94,S89
+			initialOffset: 0
+			finalOffset: 0.1
+			safetyTimeGap: 1
+		Node1: n1
+			segments: A94,S91
+			distances: 0.670,1.350
+
+
+#State-Space :
+State-Space :
+	AbsolutePosition : S95,S91,S89,S80,A94
+	States : ALLABSOLUTE,ALLSPEEDS,INFLOWS
+	ElementSize : 20,20,2

@@ -1,0 +1,24 @@
+#PATHS go first and can be anchored by an ampersand
+
+BlackPath : &black
+	Type: Loop
+	Segments: A81,S94,A106,AS105,A103,SS79,S74,S69,S59,A48,S85,A79
+
+BluePath : &blue
+	Type: Loop
+	Segments: S93,A107,A104,A98,S96,A96,S82,S66,S47,S31,S17,SS15,S1,A1,S26,S47,S53,S28,S55,S86,A80,A82
+
+EgoPath : &ego
+	Type: Loop
+	Segments: S93,A107,A104,A98,S96,A96,S82,A60,SS58,S51,SS29,S23,SS22,S30,SS49,S58,A49,S86,A80,A82
+
+### VEHICLEs come second, and can refer to the above paths
+
+
+Vehicle1 : 107
+	Mode : CAV
+	Version : lotus
+	Controllers : IDMSlow
+	IDMSlow : IDM
+		speed : 0.3
+	Path : *black

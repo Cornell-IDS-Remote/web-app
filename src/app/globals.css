@@ -25,3 +25,13 @@ body {
     text-wrap: balance;
   }
 }
+
+/* Hide scrollbar while keeping scroll functionality */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; 
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* Hide scrollbar for Internet Explorer and Edge */
+  scrollbar-width: none;      /* Hide scrollbar for Firefox */
+}
